@@ -26,28 +26,31 @@ public class MissingNumbers {
 		 * d) If did not match, that is the number
 		 * 
 		 */
-		int[] num = { 5, 4, 6, 2, 1, 7, 9, 8, 10 };
+		int[] num= {1,2,1,4,6,7,3,4,5,6,7,8,10};
+	    //output:1,2,3,4,5,6,7,9
+	    
+	    //a) Remove the duplicates using Set
+	    Set<Integer> uniqueValues=new TreeSet<Integer>();
+	    
+	    
+	    //add the values in empty set
+	    for (int i = 0; i < num.length; i++) {
+	        uniqueValues.add(num[i]);
+	    }
+	    
+	    System.out.println(uniqueValues);
+	    //Convert set into list
+	    List<Integer> missingEle=new ArrayList<Integer>(uniqueValues);
+	    
+	    for (int i = 0; i < missingEle.size()-1; i++) {
+	        //If did not match, that is the number
+	        if(missingEle.get(i)+1!= missingEle.get(i+1)) {
+	            System.out.println(missingEle.get(i)+1);
+	            break;
+	        }
+	    }
 
-		List<Integer> data = new ArrayList<Integer>();
-
-		for (Integer integer : num) {
-			data.add(integer);
-		}
-		System.out.println("Given numbers in the list is::"+" "+data);
-		Collections.sort(data);
-		System.out.println("After sorting the numbers in the list is::"+" "+data);
-
-
-		for (int i = 0; i < data.size(); i++) {
-			if(data.get(i)!=(i+1)) {
-				
-				
-			} 
-			else {
-				System.out.println(i);
-			}
-
-		}
+		
 
 	}
 }
